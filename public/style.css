@@ -1,0 +1,408 @@
+
+/* =========================================
+   STUDENT ATTENDANCE MANAGEMENT SYSTEM
+   Main stylesheet
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --background: #f3f6fb;
+    --surface: #ffffff;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --success: #16a34a;
+    --success-light: #dcfce7;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Header */
+
+.header {
+    background: linear-gradient(120deg, #1e40af, #2563eb);
+    color: white;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow);
+}
+
+.header h1 {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.header p {
+    margin-top: 5px;
+    color: #dbeafe;
+    font-size: 14px;
+}
+
+.header-date {
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.14);
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+/* Main layout */
+
+.container {
+    width: 92%;
+    max-width: 1450px;
+    margin: 30px auto;
+}
+
+.dashboard-heading,
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.dashboard-heading {
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.dashboard-heading p,
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* Date controls */
+
+.date-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-control label {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+input,
+select {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: white;
+    color: var(--text);
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Dashboard cards */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--surface);
+    padding: 21px;
+    border-radius: 11px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+}
+
+.stat-card h3 {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-card p {
+    font-size: 29px;
+    font-weight: 700;
+    margin-top: 8px;
+    color: var(--text);
+}
+
+/* Main sections */
+
+.attendance-section,
+.report-section {
+    background: var(--surface);
+    padding: 23px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+
+button {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.primary-btn {
+    color: white;
+    background: var(--primary);
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+}
+
+.secondary-btn {
+    color: var(--primary);
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+}
+
+.secondary-btn:hover {
+    background: #dbeafe;
+}
+
+/* Tables */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+    font-size: 13px;
+}
+
+thead {
+    background: #f1f5f9;
+}
+
+th {
+    color: #334155;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Attendance controls created by JavaScript */
+
+.attendance-btn {
+    min-width: 65px;
+    padding: 7px 9px;
+    font-size: 11px;
+    border-radius: 6px;
+}
+
+.attendance-btn.present {
+    background: var(--success-light);
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.attendance-btn.absent {
+    background: var(--danger-light);
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.attendance-btn.unmarked {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+/* Save area */
+
+.save-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#saveMessage {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--success);
+}
+
+/* Monthly report */
+
+.report-controls {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.report-controls input {
+    min-width: 145px;
+}
+
+/* Report percentage indicators */
+
+.percentage-good {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.percentage-low {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+/* Empty table message */
+
+.empty-message {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    background: white;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card p {
+        font-size: 24px;
+    }
+
+    .attendance-section,
+    .report-section {
+        padding: 15px;
+    }
+
+    .date-control {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .report-controls {
+        width: 100%;
+    }
+
+    .report-controls input,
+    .report-controls button {
+        width: 100%;
+    }
+}

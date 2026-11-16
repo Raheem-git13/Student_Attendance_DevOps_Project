@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Attendance Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <h1>Student Attendance Management System</h1>
+            <p>Manage student attendance and academic records</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Student Management -->
+        <section class="card">
+            <h2>Student Management</h2>
+            <p>Add student details to the attendance system.</p>
+
+            <form id="addStudentForm" class="student-form">
+
+                <div class="form-group">
+                    <label for="rollNo">Roll Number</label>
+                    <input
+                        type="text"
+                        id="rollNo"
+                        name="roll_no"
+                        placeholder="Enter roll number"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName">Student Name</label>
+                    <input
+                        type="text"
+                        id="studentName"
+                        name="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input
+                        type="text"
+                        id="department"
+                        name="department"
+                        placeholder="Enter department"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    Add Student
+                </button>
+
+            </form>
+
+            <p id="studentMessage" class="message"></p>
+        </section>
+
+
+        <!-- Attendance Dashboard -->
+        <section class="section-heading">
+
+            <h2>Attendance Dashboard</h2>
+            <p>Mark and manage daily student attendance</p>
+
+            <div class="date-field">
+                <label for="attendanceDate">Select Date</label>
+
+                <input
+                    type="date"
+                    id="attendanceDate"
+                >
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Students</h3>
+                <strong id="totalStudents">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Present</h3>
+                <strong id="presentCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Absent</h3>
+                <strong id="absentCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Attendance</h3>
+                <strong id="attendancePercentage">0%</strong>
+            </div>
+
+        </section>
+
+
+        <!-- Student Attendance -->
+        <section class="card">
+
+            <div class="section-title-row">
+
+                <div>
+                    <h2>Student Attendance</h2>
+                    <p>Seven-period attendance management</p>
+                </div>
+
+                <!-- Both Attendance Buttons -->
+                <div class="button-group">
+
+                    <button
+                        type="button"
+                        id="markAllBtn"
+                        class="success-btn"
+                    >
+                        Mark All Present
+                    </button>
+
+                    <button
+                        type="button"
+                        id="markAllAbsentBtn"
+                        class="danger-btn"
+                    >
+                        Mark All Absent
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Attendance Table -->
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Student Name</th>
+                            <th>Department</th>
+                            <th>Period 1</th>
+                            <th>Period 2</th>
+                            <th>Period 3</th>
+                            <th>Period 4</th>
+                            <th>Period 5</th>
+                            <th>Period 6</th>
+                            <th>Period 7</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody">
+
+                        <tr>
+                            <td colspan="10" class="empty-state">
+                                No students added yet.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- Save Attendance -->
+            <div class="save-area">
+
+                <button
+                    type="button"
+                    id="saveAttendanceBtn"
+                    class="primary-btn"
+                >
+                    Save Attendance
+                </button>
+
+                <p
+                    id="saveMessage"
+                    class="message"
+                    aria-live="polite"
+                ></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Monthly Attendance Report -->
+        <section class="card">
+
+            <div class="section-title-row">
+
+                <div>
+                    <h2>Monthly Attendance Report</h2>
+                    <p>View student attendance performance</p>
+                </div>
+
+                <div class="report-controls">
+
+                    <label for="reportMonth">Select Month</label>
+
+                    <input
+                        type="month"
+                        id="reportMonth"
+                    >
+
+                    <button
+                        type="button"
+                        id="generateReportBtn"
+                        class="primary-btn"
+                    >
+                        Generate Report
+                    </button>
+
+                    <button
+                        type="button"
+                        id="exportCsvBtn"
+                        class="success-btn"
+                    >
+                        Export CSV
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Report Table -->
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Student Name</th>
+                            <th>Working Periods</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance Percentage</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="reportTableBody">
+
+                        <tr>
+                            <td colspan="6" class="empty-state">
+                                Generate a report to view records.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        Student Attendance Management System | DevOps Lab Project
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
